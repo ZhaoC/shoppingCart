@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { checkout } from '../actions'
+import { checkout, createOrder } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 
@@ -12,7 +12,7 @@ class CartContainer extends Component {
       <Cart
         products={products}
         total={total}
-        onCheckoutClicked={() => this.props.checkout()} />
+        />
     )
   }
 }

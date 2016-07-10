@@ -34,17 +34,24 @@ export function addToCart(productId) {
 export function checkout(products) {
   return (dispatch, getState) => {
     const cart = getState().cart
-
     dispatch({
       type: types.CHECKOUT_REQUEST
     })
     shop.buyProducts(products, () => {
-      dispatch({
-        type: types.CHECKOUT_SUCCESS,
-        cart
-      })
+      // dispatch({
+      //   type: types.CHECKOUT_SUCCESS,
+      //   cart
+      // })
       // Replace the line above with line below to rollback on failure:
-      // dispatch({ type: types.CHECKOUT_FAILURE, cart })
+       dispatch({ type: types.CHECKOUT_FAILURE, cart })
     })
   }
 }
+
+export function createOrder(){
+  return (dispatch, getState) => {
+    dispatch({type: types.CREATE_ORDER});
+  }
+}
+
+

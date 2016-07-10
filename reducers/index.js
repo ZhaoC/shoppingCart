@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import cart, * as fromCart from './cart'
+import order, * as fromOrder from './order'
 import products, * as fromProducts from './products'
 
 export default combineReducers({
   cart,
-  products
+  products,
+  order
 })
 
 function getAddedIds(state) {
@@ -26,6 +28,14 @@ export function getTotal(state) {
   ).toFixed(2)
 }
 
+export function getTotalWithTax(state){
+  return (getTotal(state) * 1.13).toFixed(2)
+}
+
+export function getTax(state){
+  return (getTotal(state) * 0.13).toFixed(2);
+}
+
 export function getCartProducts(state) {
   return getAddedIds(state).map(id => Object.assign(
     {},
@@ -36,3 +46,6 @@ export function getCartProducts(state) {
   ))
 }
 
+export function getPageNum(state){
+  return fromOrder.order
+}

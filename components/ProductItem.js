@@ -10,7 +10,8 @@ export default class ProductItem extends Component {
         style={{ marginBottom: 20 }}>
         <Product
           title={product.title}
-          price={product.price} />
+          price={product.price} 
+          inventory={product.inventory}/>
         <button
           onClick={this.props.onAddToCartClicked}
           disabled={product.inventory > 0 ? '' : 'disabled'}>
