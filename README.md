@@ -1,2 +1,3 @@
 # shoppingCart
-Base version : https://github.com/reactjs/redux/tree/master/examples/shopping-cart
+#### Purpose
+Using ReactJS build a shopping cart example and observe its performance
